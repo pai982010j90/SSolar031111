@@ -10,9 +10,9 @@ public class ObjetoAstronomicoEsferico {
     protected String nombre;
     protected double masa;
     protected double diametro;
-    protected double velocidadRotacion;
+    protected float velocidadRotacion;
 
-    public ObjetoAstronomicoEsferico(String nombre, double masa, double diametro, double velocidadRotacion) {
+    public ObjetoAstronomicoEsferico(String nombre, double masa, double diametro, float velocidadRotacion) {
         this.nombre = WordUtils.capitalize(nombre);
         this.masa = masa;
         this.diametro = diametro;
@@ -27,7 +27,7 @@ public class ObjetoAstronomicoEsferico {
         this.masa = masa;
     }
 
-    public void setVelocidadRotacion(double velocidadRotacion) {
+    public void setVelocidadRotacion(float velocidadRotacion) {
         this.velocidadRotacion = velocidadRotacion;
     }
 
@@ -43,7 +43,7 @@ public class ObjetoAstronomicoEsferico {
         return nombre;
     }
 
-    public double getVelocidadRotacion() {
+    public float getVelocidadRotacion() {
         return velocidadRotacion;
     }
 }

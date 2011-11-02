@@ -13,7 +13,10 @@ import Modelo.Planeta;
  * @author nanohp
  */
 public class VistaObjetoAstronomicoEsferico {
-    
+
+    /**
+     * 
+     */
     private ObjetoAstronomicoEsferico oAstronomicoEsferico;
 
     public VistaObjetoAstronomicoEsferico(ObjetoAstronomicoEsferico oAEsferico) {
@@ -23,10 +26,10 @@ public class VistaObjetoAstronomicoEsferico {
     public void mostrar() {
         String tipoObjeto = oAstronomicoEsferico.getClass().getName();
         
-        System.out.print("** ("+tipoObjeto+") Nombre: " + oAstronomicoEsferico.getNombre());
-        System.out.print("- Diametro: " + oAstronomicoEsferico.getDiametro());
+        System.out.print("** ("+tipoObjeto+") Nombre: '" + oAstronomicoEsferico.getNombre()+"'");
+        System.out.print("- Diametro: " + oAstronomicoEsferico.getDiametro()+" km.");
         System.out.print("- Masa: " + oAstronomicoEsferico.getMasa());
-        System.out.print("- V Rotacion: " + oAstronomicoEsferico.getVelocidadRotacion());
+        System.out.print("- V Rotacion: " + oAstronomicoEsferico.getVelocidadRotacion()+" dias");
 
         if (tipoObjeto.equals("Modelo.Estrella")) {
             System.out.print(", Temp: " + ((Estrella) oAstronomicoEsferico).getTemperatura()+"º");

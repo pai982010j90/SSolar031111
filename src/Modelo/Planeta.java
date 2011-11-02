@@ -4,7 +4,7 @@ public class Planeta extends ObjetoAstronomicoEsferico {
 
     private double distanciaSol;
 
-    public Planeta(String nombre, double masa, double diametro, double vRotacion, double distanciaSol) {
+    public Planeta(String nombre, double masa, double diametro, float vRotacion, double distanciaSol) {
         super(nombre, masa, diametro, vRotacion);
         this.distanciaSol = distanciaSol;
     }

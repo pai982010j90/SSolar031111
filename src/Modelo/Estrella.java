@@ -8,7 +8,7 @@ public class Estrella extends ObjetoAstronomicoEsferico {
 
     private double temperatura;
 
-    public Estrella(String nombre, double masa, double diametro, double vRotacion, double temperatura) {
+    public Estrella(String nombre, double masa, double diametro, float vRotacion, double temperatura) {
         super(nombre, masa, diametro, vRotacion);
         this.temperatura = temperatura;
     }
