@@ -24,7 +24,6 @@ public class VistaSistemaPlanetario {
         System.out.println("* Nombre:" + sPlanetario.getNombre());
         for (ObjetoAstronomicoEsferico oAEsferico : sPlanetario.getObjetosEsfericos().values()) {
             new VistaObjetoAstronomicoEsferico(oAEsferico).mostrar();
-            System.out.println();
         }
 
     }

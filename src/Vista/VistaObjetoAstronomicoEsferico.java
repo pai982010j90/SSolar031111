@@ -21,16 +21,19 @@ public class VistaObjetoAstronomicoEsferico {
     }
 
     public void mostrar() {
-        System.out.print("** Nombre: " + oAstronomicoEsferico.getNombre());
+        String tipoObjeto = oAstronomicoEsferico.getClass().getName();
+        
+        System.out.print("** ("+tipoObjeto+") Nombre: " + oAstronomicoEsferico.getNombre());
         System.out.print("- Diametro: " + oAstronomicoEsferico.getDiametro());
         System.out.print("- Masa: " + oAstronomicoEsferico.getMasa());
         System.out.print("- V Rotacion: " + oAstronomicoEsferico.getVelocidadRotacion());
 
-        if (oAstronomicoEsferico.getClass().getName().equals("Modelo.Estrella")) {
-            System.out.print(", Temp: " + ((Estrella) oAstronomicoEsferico).getTemperatura());
+        if (tipoObjeto.equals("Modelo.Estrella")) {
+            System.out.print(", Temp: " + ((Estrella) oAstronomicoEsferico).getTemperatura()+"º");
         }
-        if (oAstronomicoEsferico.getClass().getName().equals("Modelo.Planeta")) {
-            System.out.print(", Dist Sol: " + ((Planeta) oAstronomicoEsferico).getDistanciaSol());
+        if (tipoObjeto.equals("Modelo.Planeta")) {
+            System.out.print(", Dist Sol: " + ((Planeta) oAstronomicoEsferico).getDistanciaSol()+" km.");
         }
+        System.out.println();
     }
 }

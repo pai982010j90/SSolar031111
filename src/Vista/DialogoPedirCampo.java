@@ -24,7 +24,7 @@ public class DialogoPedirCampo {
 
     public String ejecuta() {
         String valor = null;
-        System.out.println(etiqueta + ": ");
+        System.out.print(etiqueta + ": ");
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         try {

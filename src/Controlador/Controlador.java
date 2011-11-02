@@ -30,7 +30,7 @@ public class Controlador {
                 break;
             case MOSTRAR_OBJETO_ASTRONOMICO_ESFERICO:
                 //System.out.println("Mostrando cualquier tipo de objeto Esferico");
-                String nombreObjeto = WordUtils.capitalize(vista.getValor("Nombre del Objeto: "));
+                String nombreObjeto = WordUtils.capitalize(vista.getValor("Nombre del objeto"));
                 ObjetoAstronomicoEsferico oAEsferico = sPlanetario.getObjetosEsfericos().get(nombreObjeto);
                 if (oAEsferico != null) {
                     vista.mostrarOAEsferico(oAEsferico);

@@ -26,7 +26,7 @@ public class VistaMenu {
     }
 
     public void mostrarMenu() {
-        System.out.println("M E N U");
+        System.out.println("\nM E N U");
         for (MenuItem mItem : menuItems.values()) {
             System.out.println(mItem);
         }
