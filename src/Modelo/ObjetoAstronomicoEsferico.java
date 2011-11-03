@@ -1,11 +1,12 @@
 package Modelo;
+import java.io.Serializable;
 import org.apache.commons.lang3.text.WordUtils;
 
 /**
  *
  * @author nanohp
  */
-public class ObjetoAstronomicoEsferico {
+public class ObjetoAstronomicoEsferico implements Serializable{
 
     protected String nombre;
     protected double masa;

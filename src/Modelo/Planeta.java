@@ -1,6 +1,8 @@
 package Modelo;
 
-public class Planeta extends ObjetoAstronomicoEsferico {
+import java.io.Serializable;
+
+public class Planeta extends ObjetoAstronomicoEsferico implements Serializable{
 
     private double distanciaSol;
 

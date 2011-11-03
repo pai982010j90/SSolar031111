@@ -1,10 +1,12 @@
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nanohp
  */
-public class Estrella extends ObjetoAstronomicoEsferico {
+public class Estrella extends ObjetoAstronomicoEsferico implements Serializable{
 
     private double temperatura;
 

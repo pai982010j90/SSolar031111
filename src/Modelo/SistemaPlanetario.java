@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SistemaPlanetario {
+public class SistemaPlanetario implements Serializable{
 
     private String nombre;
     private Map<String, ObjetoAstronomicoEsferico> objetosEsfericos;

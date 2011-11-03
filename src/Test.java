@@ -19,7 +19,7 @@ import Vista.VistaTexto;
 public class Test {
     public static void main(String[] args){
         
-        //SistemaPlanetario sistemaSolar = new SistemaPlanetario();
+        //SistemaPlanetario sistemaSolar = new SistemaPlanetario("");
         SistemaPlanetario sistemaSolar = Inicializador.inicializaSistemaPlanetario();
         VistaTexto vistaTexto = new VistaTexto();
         
