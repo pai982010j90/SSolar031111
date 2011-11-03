@@ -1,0 +1,10 @@
+Nombre del sistema planetario:Sistema Solar
+Objeto:Neptuno es un Planeta
+Objeto:Mercurio es un Planeta
+Objeto:Urano es un Planeta
+Objeto:Venus es un Planeta
+Objeto:Jupiter es un Planeta
+Objeto:Sol es un Estrella
+Objeto:Saturno es un Planeta
+Objeto:Tierra es un Planeta
+Objeto:Marte es un Planeta

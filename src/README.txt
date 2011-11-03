@@ -35,21 +35,10 @@ Nuevas bibliotecas:
         - Al insertar los OAEsfericos en el sistema planetario, todos los nombres se 'capitalizan'
         - se evita así problemas con la busqueda de objetos por diferencias 'case sensitive'. Por ejemplo a la hora de pedir un objeto para buscar
 
-03/11/2011
-Rev 06:
-Implementación de Serializar y Deserializar:
-    Ha implicado el marcar que 
-    - la clases del modelo (SistemaPlanetario, ObjetoAstronomicoEsferico, Planeta y Estrella) implements Serializable.
-    - Crear los "TiposEvento" SERIALIZAR_MODELO y DESERIALIZAR_MODELO
-    - Añadir dos opciones al menu (en VistaTexto) para serializar y deserializar
-    - Gestiornar en el controlador los dos nuevos eventos:
-        - En serializar: mediante el writeObject de la secuencia de flujos ObjectOutputStream->FileOutputStream
-        - En deserializar: mediante el readObject de la secuencia de flujos ObjectInputStream->FileInputStream
-
-Rev 06.1:
-- En la gestion de eventos se han eliminado las diferentes variable de tipo String 'nombreFicherox' sustituyendolas por una var común llamada 'cadAux'
-- Para la gestion en el controlador de la deserializarion:
-    - Se ha añadido un catch para captar "FileNotFoundException" y detectar así que el fichero suministrado no se encuentra
-
-
+Rev 0.8:
+    Para mejorar la limpieza de la gestion de eventos de persistencia en el contralador:
+    - Se ha declarado una nueva interfaz 'Persistencia' que define las funcionalidades requeridas para gestioar la persistencia
+    - La clase 'SistemaPlanetario' implementa la interfaz 'Persistencia'. Para ello:
+        - El código de gestión de persistencia que antes estaba en el procesador de eventos
+        - ahora pasa a los métodos en la clase 'SistemaPlanetario' como parte de la implementación de 'Persistencia'
 

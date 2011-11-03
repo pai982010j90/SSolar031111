@@ -56,47 +56,24 @@ public class Controlador {
                 //(oAEsferico != null)?vista.mostrarOAEsferico(oAEsferico):vista.mostrarMensaje("'" + nombreObjeto + "' no encontrado en el sistema planetario '" + sPlanetario.getNombre() + "'");
                 break;
             case MODELO_A_FICHERO_TEXTO:
-                String nombreFichero = vista.getValor("Nombre del fichero");
-                try {
-                    FileWriter fw = new FileWriter(nombreFichero);
-                    fw.write("Nombre del sistema planetario:" + sPlanetario.getNombre() + "\n");
-                    for (ObjetoAstronomicoEsferico o : sPlanetario.getObjetosEsfericos().values()) {
-                        fw.write("Objeto:" + o.getNombre() + " es un " + o.getClass().getSimpleName() + "\n");
-                    }
-                    fw.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                cadAux = vista.getValor("Nombre del fichero");
+                sPlanetario.objetoAFicheroTexto(cadAux);
 
                 break;
             case SERIALIZAR_MODELO:
                 cadAux = vista.getValor("Nombre del fichero");
-
-                try {
-                    FileOutputStream fos = new FileOutputStream(cadAux);
-                    ObjectOutputStream oos = new ObjectOutputStream(fos);
-                    oos.writeObject(sPlanetario);
-                    oos.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                sPlanetario.serializar(cadAux);
                 break;
 
             case DESERIALIZAR_MODELO:
                 cadAux = vista.getValor("Nombre del fichero");
 
                 try {
-                    FileInputStream fis = new FileInputStream(cadAux);
-                    ObjectInputStream ois = new ObjectInputStream(fis);
-                    sPlanetario = (SistemaPlanetario) ois.readObject();
-                    ois.close();
-                } catch (ClassNotFoundException ex2) {
-                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex2);
+                    sPlanetario = (SistemaPlanetario) sPlanetario.deserializar(cadAux);
                 } catch (FileNotFoundException fnfEx) {
                     vista.mostrarMensaje("Fichero '" + cadAux + "' no encontrado");
-                } catch (IOException ex) {
-                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
                 break;
             default:
                 System.err.println("Controlador.procesadorEvento(): '" + evento + "' no controlado");
