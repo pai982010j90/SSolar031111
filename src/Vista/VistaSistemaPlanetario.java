@@ -14,17 +14,21 @@ import Modelo.SistemaPlanetario;
 public class VistaSistemaPlanetario {
 
     SistemaPlanetario sPlanetario;
-    
+
     public VistaSistemaPlanetario(SistemaPlanetario sPlanetario) {
         this.sPlanetario = sPlanetario;
     }
-    
+
     public void mostrar() {
         System.out.println("Sistema Planetario.");
         System.out.println("* Nombre:" + sPlanetario.getNombre());
         for (ObjetoAstronomicoEsferico oAEsferico : sPlanetario.getObjetosEsfericos().values()) {
             new VistaObjetoAstronomicoEsferico(oAEsferico).mostrar();
         }
+    }
 
+    public void mostrarResumen() {
+        System.out.println("Sistema Planetario.");
+        System.out.println("* Nombre:" + sPlanetario.getNombre());
     }
 }

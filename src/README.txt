@@ -6,7 +6,7 @@
 - Cambiar SistemaSolar -> SistemaPlanetario. El nuestro se llama "Sistema Solar"
     - Se añade a Sistema Solar un atributo "nombre" para el propio sistema. Este atributo implica:
     - Cambiar el constructor actual sin parametros para añadirle un campo String para asignar dicho nombre
-    - Añadir setNombre. No se permite setNombre
+    - Añadir getNombre. No se permite setNombre
 - Se crea un paquete Utils para clases de utilidad diversa:
     - Inicializador: Clase con metodos static para inicializar con datos de prueba
         - public static SistemaPlanetario inicializaSistemaPlanetario()

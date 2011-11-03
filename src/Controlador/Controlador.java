@@ -28,6 +28,11 @@ public class Controlador {
                 //System.out.println("Mostrando Sistema Planetario");
                 vista.mostrarSistemaPlanetario(sPlanetario);
                 break;
+                
+            case MOSTRAR_SISTEMA_PLANETARIO_RESUMEN:
+                //System.out.println("Mostrando Sistema Planetario");
+                vista.mostrarSistemaPlanetarioResumen(sPlanetario);
+                break;                
             case MOSTRAR_OBJETO_ASTRONOMICO_ESFERICO:
                 //System.out.println("Mostrando cualquier tipo de objeto Esferico");
                 String nombreObjeto = WordUtils.capitalize(vista.getValor("Nombre del objeto"));

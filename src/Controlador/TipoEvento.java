@@ -13,7 +13,8 @@ public enum TipoEvento {
     SALIR("Salir"),
     MOSTRAR_SISTEMA_PLANETARIO("Mostrar sistema planetario"),
     MOSTRAR_OBJETO_ASTRONOMICO_ESFERICO("Mostrar objeto astronómico esférico"),
-    MODELO_A_FICHERO_TEXTO("Pasar el modelo actual a fichero de texto");
+    MODELO_A_FICHERO_TEXTO("Pasar el modelo actual a fichero de texto"),
+    MOSTRAR_SISTEMA_PLANETARIO_RESUMEN("Mostrar sistema planetario (resumen)");
     
     private String tipoEvento;
 

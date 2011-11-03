@@ -30,6 +30,7 @@ public class VistaTexto {
         menu.add(new MenuItem('1', "Mostrar sistema planetario.", TipoEvento.MOSTRAR_SISTEMA_PLANETARIO));
         menu.add(new MenuItem('2', "Mostrar objeto astronómico esférico.", TipoEvento.MOSTRAR_OBJETO_ASTRONOMICO_ESFERICO));
         menu.add(new MenuItem('3', "Pasar el modelo actual a fichero de texto.", TipoEvento.MODELO_A_FICHERO_TEXTO));
+        menu.add(new MenuItem('4', "Mostrar sistema planetario - resumen.", TipoEvento.MOSTRAR_SISTEMA_PLANETARIO_RESUMEN));
 
         vistaMenu = new VistaMenu(menu);
     }
@@ -53,6 +54,11 @@ public class VistaTexto {
         vSPlanetario.mostrar();
     }
 
+    public void mostrarSistemaPlanetarioResumen(SistemaPlanetario sPlanetario) {
+        VistaSistemaPlanetario vSPlanetario = new VistaSistemaPlanetario(sPlanetario);
+        vSPlanetario.mostrarResumen();
+    }
+
     public void mostrarOAEsferico(ObjetoAstronomicoEsferico oAEsferico) {
         VistaObjetoAstronomicoEsferico vSPlanetario = new VistaObjetoAstronomicoEsferico(oAEsferico);
         vSPlanetario.mostrar();
@@ -62,7 +68,7 @@ public class VistaTexto {
         DialogoPedirCampo pideEtiqueta = new DialogoPedirCampo(etiqueta);
         return pideEtiqueta.ejecuta();
     }
-    
+
     public void mostrarMensaje(String mensaje) {
         System.out.println(mensaje);
     }
