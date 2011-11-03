@@ -35,12 +35,13 @@ public class Controlador {
                 break;                
             case MOSTRAR_OBJETO_ASTRONOMICO_ESFERICO:
                 //System.out.println("Mostrando cualquier tipo de objeto Esferico");
-                String nombreObjeto = WordUtils.capitalize(vista.getValor("Nombre del objeto"));
+                String nombreObjeto = WordUtils.capitalizeFully(vista.getValor("Nombre del objeto"));
                 ObjetoAstronomicoEsferico oAEsferico = sPlanetario.getObjetosEsfericos().get(nombreObjeto);
                 if (oAEsferico != null) {
                     vista.mostrarOAEsferico(oAEsferico);
                 } else {
                     vista.mostrarMensaje("'" + nombreObjeto + "' no encontrado en el sistema planetario '" + sPlanetario.getNombre() + "'");
+                    //System.out.println("'" + nombreObjeto + "' no encontrado en el sistema planetario '" + sPlanetario.getNombre() + "'");
                 }
                 break;
                 

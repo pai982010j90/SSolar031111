@@ -13,7 +13,7 @@ public class ObjetoAstronomicoEsferico {
     protected float velocidadRotacion;
 
     public ObjetoAstronomicoEsferico(String nombre, double masa, double diametro, float velocidadRotacion) {
-        this.nombre = WordUtils.capitalize(nombre);
+        this.nombre = WordUtils.capitalizeFully(nombre);
         this.masa = masa;
         this.diametro = diametro;
         this.velocidadRotacion = velocidadRotacion;
