@@ -34,3 +34,22 @@ Nuevas bibliotecas:
     - commons-lang3-3.0.jar: Liberaria para utilización de WordUtils.capitalize(). Se utiliza para:
         - Al insertar los OAEsfericos en el sistema planetario, todos los nombres se 'capitalizan'
         - se evita así problemas con la busqueda de objetos por diferencias 'case sensitive'. Por ejemplo a la hora de pedir un objeto para buscar
+
+03/11/2011
+Rev 06:
+Implementación de Serializar y Deserializar:
+    Ha implicado el marcar que 
+    - la clases del modelo (SistemaPlanetario, ObjetoAstronomicoEsferico, Planeta y Estrella) implements Serializable.
+    - Crear los "TiposEvento" SERIALIZAR_MODELO y DESERIALIZAR_MODELO
+    - Añadir dos opciones al menu (en VistaTexto) para serializar y deserializar
+    - Gestiornar en el controlador los dos nuevos eventos:
+        - En serializar: mediante el writeObject de la secuencia de flujos ObjectOutputStream->FileOutputStream
+        - En deserializar: mediante el readObject de la secuencia de flujos ObjectInputStream->FileInputStream
+
+Rev 06.1:
+- En la gestion de eventos se han eliminado las diferentes variable de tipo String 'nombreFicherox' sustituyendolas por una var común llamada 'cadAux'
+- Para la gestion en el controlador de la deserializarion:
+    - Se ha añadido un catch para captar "FileNotFoundException" y detectar así que el fichero suministrado no se encuentra
+
+
+

@@ -12,6 +12,7 @@ public class MenuItem {
     private String etiqueta;
     //private String evento;
     private TipoEvento evento;
+    
 
     public String getEtiqueta() {
         return etiqueta;

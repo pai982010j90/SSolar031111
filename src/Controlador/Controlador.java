@@ -5,6 +5,7 @@ import Modelo.ObjetoAstronomicoEsferico;
 import Modelo.SistemaPlanetario;
 import Vista.VistaTexto;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class Controlador {
 
     public void procesadorEvento(TipoEvento evento) {
         System.err.println("Evento:" + evento);
+        String cadAux;
 
         switch (evento) {
             case MOSTRAR_SISTEMA_PLANETARIO:
@@ -68,10 +70,10 @@ public class Controlador {
 
                 break;
             case SERIALIZAR_MODELO:
-                String nombreFichero2 = vista.getValor("Nombre del fichero");
+                cadAux = vista.getValor("Nombre del fichero");
 
                 try {
-                    FileOutputStream fos = new FileOutputStream(nombreFichero2);
+                    FileOutputStream fos = new FileOutputStream(cadAux);
                     ObjectOutputStream oos = new ObjectOutputStream(fos);
                     oos.writeObject(sPlanetario);
                     oos.close();
@@ -81,14 +83,17 @@ public class Controlador {
                 break;
 
             case DESERIALIZAR_MODELO:
-                String nombreFichero3 = vista.getValor("Nombre del fichero");
+                cadAux = vista.getValor("Nombre del fichero");
 
                 try {
-                    FileInputStream fis = new FileInputStream(nombreFichero3);
+                    FileInputStream fis = new FileInputStream(cadAux);
                     ObjectInputStream ois = new ObjectInputStream(fis);
                     sPlanetario = (SistemaPlanetario) ois.readObject();
                     ois.close();
                 } catch (ClassNotFoundException ex2) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex2);
+                } catch (FileNotFoundException fnfEx) {
+                    vista.mostrarMensaje("Fichero '" + cadAux + "' no encontrado");
                 } catch (IOException ex) {
                     Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
                 }
