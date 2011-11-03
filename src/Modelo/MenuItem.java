@@ -62,12 +62,9 @@ public class MenuItem implements Observer {
 
     @Override
     public void update(Observable o, Object o1) {
-        System.out.println(o1);
+        //System.out.println(o1);
         if (o instanceof SistemaPlanetario) {
-            //System.out.println("Mary says : Go to hell.");
             isVisible = true;
-        } else {
-            System.out.println("Mary says : I don't know you.");
         }
     }
 }
