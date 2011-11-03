@@ -12,25 +12,42 @@ import java.io.Serializable;
 //import java.util.HashSet; Se utiliza con HashSet
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class SistemaPlanetario implements Serializable, Persistencia {
+public class SistemaPlanetario extends Observable implements Serializable, Persistencia {
 
     private String nombre;
     private Map<String, ObjetoAstronomicoEsferico> objetosEsfericos;
 
-    public SistemaPlanetario(String nombre) {
-        this.nombre = nombre;
+    public SistemaPlanetario() {
         objetosEsfericos = new HashMap<String, ObjetoAstronomicoEsferico>();
+    }
+
+    public void inicializa(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void inicializa(SistemaPlanetario sPlanetarioAux) {
+        nombre = sPlanetarioAux.getNombre();
+        setObjetosEsfericos(sPlanetarioAux.getObjetosEsfericos());
+        setChanged();
+        notifyObservers();
     }
 
     public void addObjetoEsferico(ObjetoAstronomicoEsferico oEsferico) {
         objetosEsfericos.put(oEsferico.getNombre(), oEsferico);
+        setChanged();
+        notifyObservers();
     }
 
     public Map<String, ObjetoAstronomicoEsferico> getObjetosEsfericos() {
         return objetosEsfericos;
+    }
+
+    private void setObjetosEsfericos(Map<String, ObjetoAstronomicoEsferico> o) {
+        objetosEsfericos = o;
     }
 
     public String getNombre() {
@@ -57,30 +74,34 @@ public class SistemaPlanetario implements Serializable, Persistencia {
             FileOutputStream fos = new FileOutputStream(nombreFichero);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(this);
-            oos.close();
+            //oos.close();
+            //setChanged();
+            notifyObservers();
         } catch (IOException ex) {
             Logger.getLogger(SistemaPlanetario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
-    public SistemaPlanetario deserializar(String nombreFichero) throws FileNotFoundException {
+    public void deserializar(String nombreFichero) throws FileNotFoundException {
         SistemaPlanetario sPlanetario = null;
 
         try {
             FileInputStream fis = new FileInputStream(nombreFichero);
             ObjectInputStream ois = new ObjectInputStream(fis);
             sPlanetario = (SistemaPlanetario) ois.readObject();
+            setChanged();
+            notifyObservers();
             ois.close();
         } catch (ClassNotFoundException cNFException) {
             Logger.getLogger(SistemaPlanetario.class.getName()).log(Level.SEVERE, null, cNFException);
         } catch (FileNotFoundException fnfEx) {
-            Logger.getLogger(SistemaPlanetario.class.getName()).log(Level.SEVERE, null, fnfEx);
+            //Logger.getLogger(SistemaPlanetario.class.getName()).log(Level.SEVERE, null, fnfEx);
             throw fnfEx;
         } catch (IOException ex) {
             Logger.getLogger(SistemaPlanetario.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return sPlanetario;
+        inicializa(sPlanetario);
     }
 }

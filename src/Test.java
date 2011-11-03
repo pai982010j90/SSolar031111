@@ -19,9 +19,9 @@ import Vista.VistaTexto;
 public class Test {
     public static void main(String[] args){
         
-        //SistemaPlanetario sistemaSolar = new SistemaPlanetario("");
-        SistemaPlanetario sistemaSolar = Inicializador.inicializaSistemaPlanetario();
-        VistaTexto vistaTexto = new VistaTexto();
+        SistemaPlanetario sistemaSolar = new SistemaPlanetario();
+        //SistemaPlanetario sistemaSolar = Inicializador.inicializaSistemaPlanetario();
+        VistaTexto vistaTexto = new VistaTexto(Inicializador.inicializaMenu(sistemaSolar));
         
         Controlador controlador = new Controlador(vistaTexto, sistemaSolar);
         vistaTexto.setControlador(controlador);

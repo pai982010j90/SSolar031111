@@ -16,7 +16,8 @@ public enum TipoEvento {
     MODELO_A_FICHERO_TEXTO("Pasar el modelo actual a fichero de texto"),
     MOSTRAR_SISTEMA_PLANETARIO_RESUMEN("Mostrar sistema planetario (resumen)"),
     SERIALIZAR_MODELO("Grabar modelo a fichero binario"),
-    DESERIALIZAR_MODELO("Rescatar modelo desde fichero binario");
+    DESERIALIZAR_MODELO("Rescatar modelo desde fichero binario"),
+    INICIALIZAR_MODELO_PRUEBA("Carga de datos de prueba desde memoria");
     
     private String tipoEvento;
 

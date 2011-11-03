@@ -28,20 +28,21 @@ public class VistaMenu {
     public void mostrarMenu() {
         System.out.println("\nM E N U");
         for (MenuItem mItem : menuItems.values()) {
-            System.out.println(mItem);
+            if(mItem.isVisible())System.out.println(mItem);
         }
     }
 
     public void mostrarMenuOpciones() {
         System.out.print("(");
         for (Character opcion : menuItems.keySet()) {
-            System.out.print(opcion);
+            if(menuItems.get(opcion).isVisible())System.out.print(opcion);
         }
         System.out.print(")");
     }
 
     public TipoEvento selectorEvento() {
         String opcion = null;
+        Character cOpcion = null;
 
 
         InputStreamReader isr = new InputStreamReader(System.in);
@@ -50,10 +51,11 @@ public class VistaMenu {
             System.out.print("Seleccione opción: ");
             try {
                 opcion = br.readLine();
+                cOpcion = new Character(opcion.charAt(0));
             } catch (IOException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } while (menuItems.containsKey(new Character(opcion.charAt(0))) == false);
+        } while (menuItems.containsKey(cOpcion) == false || !(menuItems.get(cOpcion).isVisible()));
 
         return menuItems.get(new Character(opcion.charAt(0))).getEvento();
     }

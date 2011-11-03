@@ -15,13 +15,16 @@ import java.util.logging.Logger;
 public class Menu {
 
     private Map<Character, MenuItem> menuItems;
+    private SistemaPlanetario sPlanetario;
 
-    public Menu() {
+    public Menu(SistemaPlanetario sPlanetario) {
+        this.sPlanetario = sPlanetario; 
         menuItems = new TreeMap<Character, MenuItem>();
     }
 
     public void add(MenuItem menuItem) {
         menuItems.put(new Character(menuItem.getOpcion()), menuItem);
+        sPlanetario.addObserver(menuItem);
     }
 
     public Map<Character, MenuItem> getMenuItems() {

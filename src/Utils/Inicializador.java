@@ -4,9 +4,13 @@
  */
 package Utils;
 
+import Controlador.TipoEvento;
 import Modelo.Estrella;
+import Modelo.Menu;
+import Modelo.MenuItem;
 import Modelo.Planeta;
 import Modelo.SistemaPlanetario;
+import Vista.VistaMenu;
 
 /**
  *
@@ -15,10 +19,11 @@ import Modelo.SistemaPlanetario;
 public class Inicializador {
 
     public static SistemaPlanetario inicializaSistemaPlanetario() {
-        
-        SistemaPlanetario sPlanetario = new SistemaPlanetario("Sistema Solar");
-        
-        sPlanetario.addObjetoEsferico(new Estrella("Sol", 1.9891E30, 1392000,27,6E3));
+
+        SistemaPlanetario sPlanetario = new SistemaPlanetario();
+        sPlanetario.inicializa("Sistema Solar");
+
+        sPlanetario.addObjetoEsferico(new Estrella("Sol", 1.9891E30, 1392000, 27, 6E3));
 
         Planeta mercurio = new Planeta("Mercurio", 3.302E23, 4878, 1, 57909175);
         sPlanetario.addObjetoEsferico(mercurio);
@@ -31,11 +36,25 @@ public class Inicializador {
         sPlanetario.addObjetoEsferico(jupiter);
         Planeta saturno = new Planeta("Saturno", 5.6851E26, 120534, 1, 1426725400);
         sPlanetario.addObjetoEsferico(saturno);
-        Planeta urano = new Planeta("Urano", 8.6849E25, 51114,1,  2.8709E6);
+        Planeta urano = new Planeta("Urano", 8.6849E25, 51114, 1, 2.8709E6);
         sPlanetario.addObjetoEsferico(urano);
-        Planeta neptuno = new Planeta("Neptuno", 1.0244E26, 49532,1,  4.4982E6);
+        Planeta neptuno = new Planeta("Neptuno", 1.0244E26, 49532, 1, 4.4982E6);
         sPlanetario.addObjetoEsferico(neptuno);
 
         return sPlanetario;
+    }
+
+    public static VistaMenu inicializaMenu(SistemaPlanetario sPlanetario) {
+        Menu menu = new Menu(sPlanetario);
+        menu.add(new MenuItem('X', "Salir.", TipoEvento.SALIR));
+        menu.add(new MenuItem('I', "Inicializar datos de prueba (desde el propio software).", TipoEvento.INICIALIZAR_MODELO_PRUEBA));
+        menu.add(new MenuItem('D', "Deserializar modelo desde fichero.", TipoEvento.DESERIALIZAR_MODELO));
+        menu.add(new MenuItem('S', "Serializar modelo a fichero.", TipoEvento.SERIALIZAR_MODELO, false));
+        menu.add(new MenuItem('T', "Pasar el modelo actual a fichero de texto.", TipoEvento.MODELO_A_FICHERO_TEXTO, false));
+        menu.add(new MenuItem('1', "Mostrar sistema planetario.", TipoEvento.MOSTRAR_SISTEMA_PLANETARIO, false));
+        menu.add(new MenuItem('2', "Mostrar sistema planetario - resumen.", TipoEvento.MOSTRAR_SISTEMA_PLANETARIO_RESUMEN, false));
+        menu.add(new MenuItem('3', "Mostrar objeto astronómico esférico.", TipoEvento.MOSTRAR_OBJETO_ASTRONOMICO_ESFERICO, false));
+
+        return new VistaMenu(menu);
     }
 }

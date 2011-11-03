@@ -24,17 +24,8 @@ public class VistaTexto {
         this.controlador = controlador;
     }
 
-    public VistaTexto() {
-        Menu menu = new Menu();
-        menu.add(new MenuItem('0', "Salir.", TipoEvento.SALIR));
-        menu.add(new MenuItem('1', "Mostrar sistema planetario.", TipoEvento.MOSTRAR_SISTEMA_PLANETARIO));
-        menu.add(new MenuItem('2', "Mostrar objeto astronómico esférico.", TipoEvento.MOSTRAR_OBJETO_ASTRONOMICO_ESFERICO));
-        menu.add(new MenuItem('3', "Pasar el modelo actual a fichero de texto.", TipoEvento.MODELO_A_FICHERO_TEXTO));
-        menu.add(new MenuItem('4', "Mostrar sistema planetario - resumen.", TipoEvento.MOSTRAR_SISTEMA_PLANETARIO_RESUMEN));
-        menu.add(new MenuItem('5', "Serializar modelo a fichero.", TipoEvento.SERIALIZAR_MODELO));
-        menu.add(new MenuItem('6', "Deserializar modelo desde fichero.", TipoEvento.DESERIALIZAR_MODELO));
-
-        vistaMenu = new VistaMenu(menu);
+    public VistaTexto(VistaMenu vistaMenu) {
+        this.vistaMenu = vistaMenu;
     }
 
     public void arranca() {

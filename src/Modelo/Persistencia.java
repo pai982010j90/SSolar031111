@@ -13,5 +13,5 @@ import java.io.FileNotFoundException;
 public interface Persistencia {
     public void objetoAFicheroTexto(String nombreFichero);
     public void serializar(String nombreFichero);
-    public SistemaPlanetario deserializar(String nombreFichero) throws FileNotFoundException;
+    public void deserializar(String nombreFichero) throws FileNotFoundException;
 }

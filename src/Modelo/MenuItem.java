@@ -1,32 +1,39 @@
 package Modelo;
 
 import Controlador.TipoEvento;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  *
  * @author nanohp
  */
-public class MenuItem {
+public class MenuItem implements Observer {
 
     private char opcion;
     private String etiqueta;
     //private String evento;
     private TipoEvento evento;
-    
-
-    public String getEtiqueta() {
-        return etiqueta;
-    }
+    private boolean isVisible = true;
 
     public MenuItem(char opcion, String etiqueta) {
         this.opcion = opcion;
         this.etiqueta = etiqueta;
     }
-    
+
     public MenuItem(char opcion, String etiqueta, TipoEvento evento) {
         this(opcion, etiqueta);
         this.evento = evento;
-    }    
+    }
+
+    public MenuItem(char opcion, String etiqueta, TipoEvento evento, boolean isVisible) {
+        this(opcion, etiqueta, evento);
+        this.isVisible = isVisible;
+    }
+
+    public String getEtiqueta() {
+        return etiqueta;
+    }
 
     public void setEtiqueta(String etiqueta) {
         this.etiqueta = etiqueta;
@@ -40,10 +47,27 @@ public class MenuItem {
         return evento;
     }
 
+    public boolean isVisible() {
+        return isVisible;
+    }
 
+    public void isVisible(boolean isVisible) {
+        this.isVisible = isVisible;
+    }
 
     @Override
     public String toString() {
         return opcion + ": " + etiqueta;
+    }
+
+    @Override
+    public void update(Observable o, Object o1) {
+        System.out.println(o1);
+        if (o instanceof SistemaPlanetario) {
+            //System.out.println("Mary says : Go to hell.");
+            isVisible = true;
+        } else {
+            System.out.println("Mary says : I don't know you.");
+        }
     }
 }

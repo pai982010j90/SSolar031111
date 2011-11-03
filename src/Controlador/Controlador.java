@@ -3,6 +3,7 @@ package Controlador;
 import Controlador.TipoEvento;
 import Modelo.ObjetoAstronomicoEsferico;
 import Modelo.SistemaPlanetario;
+import Utils.Inicializador;
 import Vista.VistaTexto;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -58,18 +59,20 @@ public class Controlador {
             case MODELO_A_FICHERO_TEXTO:
                 cadAux = vista.getValor("Nombre del fichero");
                 sPlanetario.objetoAFicheroTexto(cadAux);
-
                 break;
             case SERIALIZAR_MODELO:
                 cadAux = vista.getValor("Nombre del fichero");
                 sPlanetario.serializar(cadAux);
+                break;
+            case INICIALIZAR_MODELO_PRUEBA:
+                sPlanetario.inicializa(Inicializador.inicializaSistemaPlanetario());
                 break;
 
             case DESERIALIZAR_MODELO:
                 cadAux = vista.getValor("Nombre del fichero");
 
                 try {
-                    sPlanetario = (SistemaPlanetario) sPlanetario.deserializar(cadAux);
+                    sPlanetario.deserializar(cadAux);
                 } catch (FileNotFoundException fnfEx) {
                     vista.mostrarMensaje("Fichero '" + cadAux + "' no encontrado");
                 }
