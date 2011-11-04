@@ -17,7 +17,9 @@ public enum TipoEvento {
     MOSTRAR_SISTEMA_PLANETARIO_RESUMEN("Mostrar sistema planetario (resumen)"),
     SERIALIZAR_MODELO("Grabar modelo a fichero binario"),
     DESERIALIZAR_MODELO("Rescatar modelo desde fichero binario"),
-    INICIALIZAR_MODELO_PRUEBA("Carga de datos de prueba desde memoria");
+    INICIALIZAR_MODELO_PRUEBA("Carga de datos de prueba desde memoria"),
+    NUEVO_OAE("Dar de alta un nuevo Objeto Astronomico Esferico"),
+    NUEVO_SP("Dar de alta un nuevo Sistema Planetario");
     
     private String tipoEvento;
 

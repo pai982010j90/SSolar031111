@@ -78,6 +78,15 @@ public class Controlador {
                 }
 
                 break;
+            case NUEVO_OAE:
+                ObjetoAstronomicoEsferico oae = null;
+                oae = vista.getOAE();
+                sPlanetario.addObjetoEsferico(oae);
+                break;
+            case NUEVO_SP:
+                cadAux = vista.getValor("Nombre del Sistema Planetario");
+                sPlanetario.inicializa(cadAux);
+                break;                
             default:
                 System.err.println("Controlador.procesadorEvento(): '" + evento + "' no controlado");
         }

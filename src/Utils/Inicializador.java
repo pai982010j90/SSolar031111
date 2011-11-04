@@ -51,9 +51,11 @@ public class Inicializador {
         menu.add(new MenuItem('D', "Deserializar modelo desde fichero.", TipoEvento.DESERIALIZAR_MODELO));
         menu.add(new MenuItem('S', "Serializar modelo a fichero.", TipoEvento.SERIALIZAR_MODELO, false));
         menu.add(new MenuItem('T', "Pasar el modelo actual a fichero de texto.", TipoEvento.MODELO_A_FICHERO_TEXTO, false));
+        menu.add(new MenuItem('@', "Crear nuevo Sistema Planetario.", TipoEvento.NUEVO_SP));
         menu.add(new MenuItem('1', "Mostrar sistema planetario.", TipoEvento.MOSTRAR_SISTEMA_PLANETARIO, false));
         menu.add(new MenuItem('2', "Mostrar sistema planetario - resumen.", TipoEvento.MOSTRAR_SISTEMA_PLANETARIO_RESUMEN, false));
         menu.add(new MenuItem('3', "Mostrar objeto astronómico esférico.", TipoEvento.MOSTRAR_OBJETO_ASTRONOMICO_ESFERICO, false));
+        menu.add(new MenuItem('4', "Crear nuevo OAE.", TipoEvento.NUEVO_OAE, false));
 
         return new VistaMenu(menu);
     }

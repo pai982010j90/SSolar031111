@@ -27,6 +27,8 @@ public class SistemaPlanetario extends Observable implements Serializable, Persi
 
     public void inicializa(String nombre) {
         this.nombre = nombre;
+        setChanged();
+        notifyObservers();
     }
 
     public void inicializa(SistemaPlanetario sPlanetarioAux) {
@@ -74,9 +76,9 @@ public class SistemaPlanetario extends Observable implements Serializable, Persi
             FileOutputStream fos = new FileOutputStream(nombreFichero);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(this);
-            //oos.close();
+            oos.close();
             //setChanged();
-            notifyObservers();
+            //notifyObservers();
         } catch (IOException ex) {
             Logger.getLogger(SistemaPlanetario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -84,15 +86,17 @@ public class SistemaPlanetario extends Observable implements Serializable, Persi
 
     @Override
     public void deserializar(String nombreFichero) throws FileNotFoundException {
-        SistemaPlanetario sPlanetario = null;
+        //SistemaPlanetario sPlanetario = null;
+        SistemaPlanetario sPlanetarioAux = null;
 
         try {
             FileInputStream fis = new FileInputStream(nombreFichero);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            sPlanetario = (SistemaPlanetario) ois.readObject();
+            sPlanetarioAux = (SistemaPlanetario) ois.readObject();
             setChanged();
             notifyObservers();
             ois.close();
+            inicializa(sPlanetarioAux);
         } catch (ClassNotFoundException cNFException) {
             Logger.getLogger(SistemaPlanetario.class.getName()).log(Level.SEVERE, null, cNFException);
         } catch (FileNotFoundException fnfEx) {
@@ -102,6 +106,6 @@ public class SistemaPlanetario extends Observable implements Serializable, Persi
             Logger.getLogger(SistemaPlanetario.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        inicializa(sPlanetario);
+
     }
 }

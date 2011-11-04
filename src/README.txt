@@ -54,3 +54,13 @@ Rev 0.9:
     - Cambiado la inicializacion de la vistaMenu:
         - Ahora la inicializacion del menu se hace desde Inicializador.inicializaMenu
         - A la Vista se la pasa la VistaMenu ya inicializada.
+Rev 1.00
+    Implementacion de una nueva funcionalidad para añadir un nuevo SP:
+    - Crear un nuevo tipo evento "NUEVO_SP"
+    - Añadir esa opcion al menu
+    - Gestionar en el controlador el evento
+    Implementacion de una nueva funcionalidad para añadir un nuevo OAE:
+    - Crear un nuevo tipo evento "NUEVO_OAE"
+    - Añadir esa opcion al menu
+    - Gestionar en el controlador el evento
+    - Crear un nuevo metodo para pedir datos del OAE (getOAE)

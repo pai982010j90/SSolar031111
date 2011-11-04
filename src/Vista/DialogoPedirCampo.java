@@ -17,6 +17,9 @@ import java.util.logging.Logger;
 public class DialogoPedirCampo {
 
     public String etiqueta;
+    
+    public DialogoPedirCampo() {
+    }    
 
     public DialogoPedirCampo(String etiqueta) {
         this.etiqueta = etiqueta;
@@ -39,4 +42,22 @@ public class DialogoPedirCampo {
 
         return valor;
     }
+    
+ public String ejecuta(String etiqueta) {
+        String valor = null;
+        System.out.print(etiqueta + ": ");
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        try {
+            try {
+                valor = br.readLine();
+            } finally {
+                //br.close();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(DialogoPedirCampo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return valor;
+    }    
 }
