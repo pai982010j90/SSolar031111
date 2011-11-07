@@ -19,7 +19,8 @@ public enum TipoEvento {
     DESERIALIZAR_MODELO("Rescatar modelo desde fichero binario"),
     INICIALIZAR_MODELO_PRUEBA("Carga de datos de prueba desde memoria"),
     NUEVO_OAE("Dar de alta un nuevo Objeto Astronomico Esferico"),
-    NUEVO_SP("Dar de alta un nuevo Sistema Planetario");
+    NUEVO_SP("Dar de alta un nuevo Sistema Planetario"),
+    BORRAR_OAE("Dar de baja un OAE");
     
     private String tipoEvento;
 

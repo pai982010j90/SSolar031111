@@ -56,6 +56,22 @@ public class Controlador {
                 }
                 //(oAEsferico != null)?vista.mostrarOAEsferico(oAEsferico):vista.mostrarMensaje("'" + nombreObjeto + "' no encontrado en el sistema planetario '" + sPlanetario.getNombre() + "'");
                 break;
+
+            case BORRAR_OAE:
+                cadAux = WordUtils.capitalizeFully(vista.getValor("Borrar OAE: Nombre del objeto"));
+
+                if (sPlanetario.containsOAE(cadAux)) {
+                    String opcion = WordUtils.capitalizeFully(vista.getValor(cadAux + ": Realmente desea borrarlo (S/N)"));
+                    if (opcion.charAt(0) == 'S') {
+                        
+                        if(sPlanetario.borrarOAE(cadAux) != null)
+                            vista.mostrarMensaje(cadAux+": Borrado correctamente");
+                        else assert false:"Caso no controlado";
+                    }
+                } else {
+                    vista.mostrarMensaje("'" + cadAux + "' no encontrado en el sistema planetario '" + sPlanetario.getNombre() + "'");
+                }
+                break;
             case MODELO_A_FICHERO_TEXTO:
                 cadAux = vista.getValor("Nombre del fichero");
                 sPlanetario.objetoAFicheroTexto(cadAux);
@@ -86,7 +102,7 @@ public class Controlador {
             case NUEVO_SP:
                 cadAux = vista.getValor("Nombre del Sistema Planetario");
                 sPlanetario.inicializa(cadAux);
-                break;                
+                break;
             default:
                 System.err.println("Controlador.procesadorEvento(): '" + evento + "' no controlado");
         }

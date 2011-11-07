@@ -56,6 +56,7 @@ public class Inicializador {
         menu.add(new MenuItem('2', "Mostrar sistema planetario - resumen.", TipoEvento.MOSTRAR_SISTEMA_PLANETARIO_RESUMEN, false));
         menu.add(new MenuItem('3', "Mostrar objeto astronómico esférico.", TipoEvento.MOSTRAR_OBJETO_ASTRONOMICO_ESFERICO, false));
         menu.add(new MenuItem('4', "Crear nuevo OAE.", TipoEvento.NUEVO_OAE, false));
+        menu.add(new MenuItem('5', "Borrar OAE.", TipoEvento.BORRAR_OAE, false));
 
         return new VistaMenu(menu);
     }

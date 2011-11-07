@@ -64,3 +64,25 @@ Rev 1.00
     - Añadir esa opcion al menu
     - Gestionar en el controlador el evento
     - Crear un nuevo metodo para pedir datos del OAE (getOAE)
+Rev 1.1:
+    Implementación de borrado de OAE: se tendrá que podar borrar cualquier OAE e un sistema planetario. Tener en cuenta que:
+    - El Evento que pondrá en marcha el el proceso será: "BORRAR_OAE"
+    - Se deberá mostrar el resultado (utilizar el método 'VistaText.mostrarMensaje(String mensaje)' )
+    - Se comunicará si el borrado ha sido correcto
+    - Si el OAE no se encuentra se advierte del error.
+Para ello además de lo aneterior se ha implementado:
+    1 - public ObjetoAstronomicoEsferico borrarOAE(String nombreObjeto){
+        return objetosEsfericos.remove(nombreObjeto);
+    }
+
+    Basándose en el comportamiento del borrado de mapas:
+        - si la clave existe, se duvuelve el valor del objeto borrado
+        - null en caso contrario
+    2 - public boolean containsOAE(String nombre){
+        return objetosEsfericos.containsKey(nombre);
+    }
+Utilizamos el método anterior para realizar una relización de "poco peso" para saber si el objeto que se pretende borrar está en el mapa
+En el contralador:
+ - aparte de añadir el evento 'BORRAR_OAE' y gestionar el resultado utilizamos una 'Asercion' para el caso improbable de:
+    -  que aunque el objeto exista, no se pueda borrar.
+

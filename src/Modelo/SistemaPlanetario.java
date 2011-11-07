@@ -43,6 +43,13 @@ public class SistemaPlanetario extends Observable implements Serializable, Persi
         setChanged();
         notifyObservers();
     }
+    
+    public ObjetoAstronomicoEsferico borrarOAE(String nombreObjeto){
+        return objetosEsfericos.remove(nombreObjeto);
+    }
+    public boolean containsOAE(String nombre){
+        return objetosEsfericos.containsKey(nombre);
+    }
 
     public Map<String, ObjetoAstronomicoEsferico> getObjetosEsfericos() {
         return objetosEsfericos;
