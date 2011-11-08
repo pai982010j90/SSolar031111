@@ -86,3 +86,15 @@ En el contralador:
  - aparte de añadir el evento 'BORRAR_OAE' y gestionar el resultado utilizamos una 'Asercion' para el caso improbable de:
     -  que aunque el objeto exista, no se pueda borrar.
 
+Rev 1.9:
+Implementación de la vista Grafica (basica):
+    - Tanto la VistaGrafica como la VistaTexto implements la interfaz 'Vista'
+    - Se ha implementado JMenuItemPersonalizado como subclase JMenuItem para enlazar con MenuItemData.
+    - Controlador.procesadorEvento(TipoEvento) ha sido sustituido por Controlador.actionPerformed(ActionEvent)
+    - VistaMenuTexto y VistaMenuGrafico implements 'VistaMenuI'. Ahora es VistaMenu (texto y grafico) el observador del modelo en lugar los menusItem
+    - Se ha implementado un selector de vista (desde consola) para en tiempo de arranque elegir Texto / Grafico
+    - Solo se le ha dado a la vista Grafica algunas funcionalidades en formato bastante básico.
+    - Multiples cambios menores.
+
+
+

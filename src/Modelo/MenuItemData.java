@@ -8,7 +8,7 @@ import java.util.Observer;
  *
  * @author nanohp
  */
-public class MenuItem implements Observer {
+public class MenuItemData {
 
     private char opcion;
     private String etiqueta;
@@ -16,17 +16,17 @@ public class MenuItem implements Observer {
     private TipoEvento evento;
     private boolean isVisible = true;
 
-    public MenuItem(char opcion, String etiqueta) {
+    public MenuItemData(char opcion, String etiqueta) {
         this.opcion = opcion;
         this.etiqueta = etiqueta;
     }
 
-    public MenuItem(char opcion, String etiqueta, TipoEvento evento) {
+    public MenuItemData(char opcion, String etiqueta, TipoEvento evento) {
         this(opcion, etiqueta);
         this.evento = evento;
     }
 
-    public MenuItem(char opcion, String etiqueta, TipoEvento evento, boolean isVisible) {
+    public MenuItemData(char opcion, String etiqueta, TipoEvento evento, boolean isVisible) {
         this(opcion, etiqueta, evento);
         this.isVisible = isVisible;
     }
@@ -58,13 +58,5 @@ public class MenuItem implements Observer {
     @Override
     public String toString() {
         return opcion + ": " + etiqueta;
-    }
-
-    @Override
-    public void update(Observable o, Object o1) {
-        //System.out.println(o1);
-        if (o instanceof SistemaPlanetario) {
-            isVisible = true;
-        }
     }
 }
